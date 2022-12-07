@@ -5,6 +5,7 @@
     </a>
 </p>
 <?php
+//Notifikasi
 if ($this->session->flashdata('sukses')) {
     echo '<div class="alert alert-success">';
     echo $this->session->flashdata('sukses');
