@@ -15,13 +15,17 @@ class Produk_model extends CI_Model
             'produk.*,
         users.nama,
         kategori.nama_kategori,
-        kategori.slug_kategori'
+        kategori.slug_kategori,
+        COUNT(gambar.id_gambar) AS total_gambar'
+
         );
         $this->db->from('produk');
         //JOIN
         $this->db->join('users', 'users.id_user = produk.id_user', 'left');
         $this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori', 'left');
+        $this->db->join('gambar', 'gambar.id_produk = produk.id_produk', 'left');
         //END JOIN
+        $this->db->group_by('produk.id_produk');
         $this->db->order_by('id_produk', 'desc');
         $query = $this->db->get();
         return $query->result();
