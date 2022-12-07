@@ -366,7 +366,7 @@ class Produk extends CI_Controller
         $data = array('id_gambar' => $id_gambar);
         $this->produk_model->delete_gambar($data);
         $this->session->set_flashdata('warning', 'Data gambar berhasil Dihapus');
-        redirect(base_url('admin/produk/gambar/' . $id_produk), 'refresh');
+        redirect('admin/produk/gambar/' . $id_produk, 'refresh');
     }
 }
 
