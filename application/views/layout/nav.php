@@ -1,9 +1,9 @@
 <div class="wrap_header">
     <!-- Logo -->
-
-    <img href="" src="<?= base_url() ?>assets/frontend/images/icons/eds.png" class=" logo" width="130px"
-        alt=" IMG-LOGO">
-
+    <a href="">
+        <img href="" src="<?= base_url('assets/upload/image/' . $site->logo) ?>" class=" logo"
+            alt=" <?= $site->namaweb ?> | <?= $site->tagline ?>" width="150">
+    </a>
 
     <!-- Menu -->
     <div class="wrap_menu">

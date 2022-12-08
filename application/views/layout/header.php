@@ -6,26 +6,26 @@
         <div class="container-menu-header">
             <div class="topbar">
                 <div class="topbar-social">
-                    <a href="#" class="topbar-social-item fa fa-facebook"></a>
-                    <a href="#" class="topbar-social-item fa fa-instagram"></a>
-                    <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
+                    <a href="<?= $site->facebook ?>" class="topbar-social-item fa fa-facebook"></a>
+                    <a href="<?= $site->instagram ?>" class="topbar-social-item fa fa-instagram"></a>
+                    <!-- <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
                     <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
-                    <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+                    <a href="#" class="topbar-social-item fa fa-youtube-play"></a> -->
                 </div>
 
                 <span class="topbar-child1">
-                    Free shipping for standard order over $100
+                    <?= $site->alamat ?>
                 </span>
 
                 <div class="topbar-child2">
                     <span class="topbar-email">
-                        fashe@example.com
+                        <?= $site->email ?>
                     </span>
 
                     <div class="topbar-language rs1-select2">
                         <select class="selection-1" name="time">
-                            <option>USD</option>
-                            <option>EUR</option>
+                            <option><?= $site->telepon ?></option>
+                            <option><?= $site->email ?></option>
                         </select>
                     </div>
                 </div>
