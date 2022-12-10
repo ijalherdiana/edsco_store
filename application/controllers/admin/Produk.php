@@ -16,10 +16,10 @@ class Produk extends CI_Controller
     public function index()
     {
         $produk = $this->produk_model->listing();
-        $data = array(
-            'title' => 'Data Produk',
-            'produk'  => $produk,
-            'isi'   => 'admin/produk/list'
+        $data   = array(
+            'title'     => 'Data Produk',
+            'produk'    => $produk,
+            'isi'       => 'admin/produk/list'
         );
         $this->load->view('admin/templates/wrapper', $data, FALSE);
     }

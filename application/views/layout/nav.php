@@ -1,3 +1,9 @@
+<?php
+// AMBIL DATA MENU DARI KONFIGURASI
+$nav_produk            = $this->konfigurasi_model->nav_produk();
+$nav_produk_mobile     = $this->konfigurasi_model->nav_produk();
+?>
+
 <div class="wrap_header">
     <!-- Logo -->
     <a href="">
@@ -8,38 +14,24 @@
     <!-- Menu -->
     <div class="wrap_menu">
         <nav class="menu">
+            <!-- HOME -->
             <ul class="main_menu">
                 <li>
-                    <a href="index.html">Home</a>
+                    <a href="<?= base_url() ?>">Beranda</a>
+                </li>
+                <!-- MENU PRODUK -->
+                <li>
+                    <a href="<?= base_url('produk') ?>">Produk &amp; Belanja</a>
                     <ul class="sub_menu">
-                        <li><a href="index.html">Homepage V1</a></li>
-                        <li><a href="home-02.html">Homepage V2</a></li>
-                        <li><a href="home-03.html">Homepage V3</a></li>
+                        <!-- Tampilkan Sesuai Data Kategori Produk -->
+                        <?php foreach ($nav_produk as $nav_produk) : ?>
+                        <li><a href="<?= base_url('produk/kategori/' . $nav_produk->slug_kategori) ?>">
+                                <?= $nav_produk->nama_kategori ?></a></li>
+                        <?php endforeach ?>
                     </ul>
                 </li>
-
                 <li>
-                    <a href="product.html">Shop</a>
-                </li>
-
-                <li class="sale-noti">
-                    <a href="product.html">Sale</a>
-                </li>
-
-                <li>
-                    <a href="cart.html">Features</a>
-                </li>
-
-                <li>
-                    <a href="blog.html">Blog</a>
-                </li>
-
-                <li>
-                    <a href="about.html">About</a>
-                </li>
-
-                <li>
-                    <a href="contact.html">Contact</a>
+                    <a href="<?= base_url('kontak') ?>">Contact</a>
                 </li>
             </ul>
         </nav>
@@ -247,20 +239,20 @@
         <ul class="main-menu">
             <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
                 <span class="topbar-child1">
-                    Free shipping for standard order over $100
+                    <?= $site->alamat ?>
                 </span>
             </li>
 
             <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
                 <div class="topbar-child2-mobile">
                     <span class="topbar-email">
-                        fashe@example.com
+                        <?= $site->email ?>
                     </span>
 
                     <div class="topbar-language rs1-select2">
                         <select class="selection-1" name="time">
-                            <option>USD</option>
-                            <option>EUR</option>
+                            <option><?= $site->telepon ?></option>
+                            <option><?= $site->email ?></option>
                         </select>
                     </div>
                 </div>
@@ -268,46 +260,30 @@
 
             <li class="item-topbar-mobile p-l-10">
                 <div class="topbar-social-mobile">
-                    <a href="#" class="topbar-social-item fa fa-facebook"></a>
-                    <a href="#" class="topbar-social-item fa fa-instagram"></a>
-                    <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
-                    <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
-                    <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+                    <a href="<?= $site->facebook ?>" class="topbar-social-item fa fa-facebook"></a>
+                    <a href="<?= $site->instagram ?>" class="topbar-social-item fa fa-instagram"></a>
+
                 </div>
             </li>
-
+            <!-- Menu monile homepage -->
             <li class="item-menu-mobile">
-                <a href="index.html">Home</a>
+                <a href="<?= base_url() ?>">Beranda</a>
+            </li>
+
+            <!-- Menu mobile produk -->
+            <li class="item-menu-mobile">
+                <a href="index.html">Produk &amp; Belanja </a>
                 <ul class="sub-menu">
-                    <li><a href="index.html">Homepage V1</a></li>
-                    <li><a href="home-02.html">Homepage V2</a></li>
-                    <li><a href="home-03.html">Homepage V3</a></li>
+                    <?php foreach ($nav_produk_mobile as $nav_produk_mobile) : ?>
+                    <li><a href="<?= base_url('produk/kategori/' . $nav_produk_mobile->slug_kategori) ?>">
+                            <?= $nav_produk_mobile->nama_kategori ?></a></li>
+                    <?php endforeach ?>
                 </ul>
                 <i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
             </li>
-
+            <!-- Menu kontak mobile -->
             <li class="item-menu-mobile">
-                <a href="product.html">Shop</a>
-            </li>
-
-            <li class="item-menu-mobile">
-                <a href="product.html">Sale</a>
-            </li>
-
-            <li class="item-menu-mobile">
-                <a href="cart.html">Features</a>
-            </li>
-
-            <li class="item-menu-mobile">
-                <a href="blog.html">Blog</a>
-            </li>
-
-            <li class="item-menu-mobile">
-                <a href="about.html">About</a>
-            </li>
-
-            <li class="item-menu-mobile">
-                <a href="contact.html">Contact</a>
+                <a href="<?= base_url('kontak') ?>">Contact</a>
             </li>
         </ul>
     </nav>

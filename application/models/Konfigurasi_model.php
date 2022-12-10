@@ -21,6 +21,22 @@ class Konfigurasi_model extends CI_Model
         $this->db->where('id_konfigurasi', $data['id_konfigurasi']);
         $this->db->update('konfigurasi', $data);
     }
+    // Load menu kategori Produk
+    public function nav_produk()
+    {
+        $this->db->select('produk.*,kategori.nama_kategori,
+                        kategori.slug_kategori,');
+        $this->db->from('produk');
+
+        //JOIN
+        $this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori', 'left');
+        //END JOIN
+        $this->db->group_by('produk.id_kategori');
+        //Urutkan sesuai urutan Kategori Produk
+        $this->db->order_by('kategori.urutan', 'ASC');
+        $query = $this->db->get();
+        return $query->result();
+    }
 }
 
 

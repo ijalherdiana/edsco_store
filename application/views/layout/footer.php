@@ -1,56 +1,45 @@
+<?php
+// LOAD DATA KONFIGURASI WEBSITE
+$site                = $this->konfigurasi_model->listing();
+$nav_produk_footer   = $this->konfigurasi_model->nav_produk();
+?>
+
 <!-- Footer -->
 <footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
     <div class="flex-w p-b-90">
         <div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
             <h4 class="s-text12 p-b-30">
-                GET IN TOUCH
+                KONTAK KAMI
             </h4>
 
             <div>
                 <p class="s-text7 w-size27">
-                    Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on
-                    (+1) 96 716 6879
+                    <?= nl2br($site->alamat) ?>
+                    <br><i class="fa fa-envelope"></i><?= $site->email ?>
+                    <br><i class="fa fa-phone"></i><?= $site->telepon ?>
                 </p>
 
                 <div class="flex-m p-t-30">
-                    <a href="#" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
-                    <a href="#" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
-                    <a href="#" class="fs-18 color1 p-r-20 fa fa-pinterest-p"></a>
-                    <a href="#" class="fs-18 color1 p-r-20 fa fa-snapchat-ghost"></a>
-                    <a href="#" class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
+                    <a href="<?= $site->facebook ?>" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
+                    <a href="<?= $site->instagram ?>" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
                 </div>
             </div>
         </div>
 
         <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
             <h4 class="s-text12 p-b-30">
-                Categories
+                Kategori Produk
             </h4>
 
             <ul>
+                <?php foreach ($nav_produk_footer as $nav_produk_footer) : ?>
                 <li class="p-b-9">
-                    <a href="#" class="s-text7">
-                        Men
+                    <a href="<?= base_url('produk/kategori/' . $nav_produk_footer->slug_kategori) ?>" class="s-text7">
+                        <?= $nav_produk_footer->nama_kategori ?>
                     </a>
                 </li>
+                <?php endforeach; ?>
 
-                <li class="p-b-9">
-                    <a href="#" class="s-text7">
-                        Women
-                    </a>
-                </li>
-
-                <li class="p-b-9">
-                    <a href="#" class="s-text7">
-                        Dresses
-                    </a>
-                </li>
-
-                <li class="p-b-9">
-                    <a href="#" class="s-text7">
-                        Sunglasses
-                    </a>
-                </li>
             </ul>
         </div>
 
@@ -141,26 +130,6 @@
     </div>
 
     <div class="t-center p-l-15 p-r-15">
-        <a href="#">
-            <img class="h-size2" src="<?= base_url() ?>assets/frontend/images/icons/paypal.png" alt="IMG-PAYPAL">
-        </a>
-
-        <a href="#">
-            <img class="h-size2" src="<?= base_url() ?>assets/frontend/images/icons/visa.png" alt="IMG-VISA">
-        </a>
-
-        <a href="#">
-            <img class="h-size2" src="<?= base_url() ?>assets/frontend/images/icons/mastercard.png"
-                alt="IMG-MASTERCARD">
-        </a>
-
-        <a href="#">
-            <img class="h-size2" src="<?= base_url() ?>assets/frontend/images/icons/express.png" alt="IMG-EXPRESS">
-        </a>
-
-        <a href="#">
-            <img class="h-size2" src="<?= base_url() ?>assets/frontend/images/icons/discover.png" alt="IMG-DISCOVER">
-        </a>
 
         <div class="t-center s-text8 p-t-20">
             Copyright © 2018 All rights reserved. | This template is made with <i class="fa fa-heart-o"
