@@ -6,7 +6,4 @@ include('slider.php');
 //load dat5a produk
 include('produk.php');
 //load berita
-include('berita.php')
-
-?>
-
+include('berita.php');
