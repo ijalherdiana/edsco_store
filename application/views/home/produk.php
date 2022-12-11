@@ -28,7 +28,7 @@
                     <!-- Block2 -->
                     <div class="block2">
                         <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                            <img src="<?= base_url('assets/upload/image/' . $produk->gambar) ?>"
+                            <img src="<?= base_url('assets/upload/image/thumbs/' . $produk->gambar) ?>"
                                 alt="<?= $produk->nama_produk ?>">
 
                             <div class="block2-overlay trans-0-4">
@@ -48,7 +48,7 @@
                         </div>
 
                         <div class="block2-txt p-t-20">
-                            <a href="<?= base_url('produk/detail' . $produk->slug_produk) ?>"
+                            <a href="<?= base_url('produk/detail/' . $produk->slug_produk) ?>"
                                 class="block2-name dis-block s-text3 p-b-5">
                                 <?= $produk->nama_produk ?>
                             </a>

@@ -6,7 +6,7 @@ class Produk_model extends CI_Model
     public function __construct()
     {
         parent::__construct();
-        $this->load->database();
+        // $this->load->database();
     }
     //listing all produk
     public function listing()
@@ -52,6 +52,126 @@ class Produk_model extends CI_Model
         $this->db->group_by('produk.id_produk');
         $this->db->order_by('id_produk', 'desc');
         $this->db->limit(12); // Batasi maksimal 12 Produk
+        $query = $this->db->get();
+        return $query->result();
+    }
+    //Read Produk
+    public function read($slug_produk)
+    {
+        $this->db->select(
+            'produk.*,
+         users.nama,
+         kategori.nama_kategori,
+         kategori.slug_kategori,
+         COUNT(gambar.id_gambar) AS total_gambar'
+
+        );
+        $this->db->from('produk');
+        //JOIN
+        $this->db->join('users', 'users.id_user = produk.id_user', 'left');
+        $this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori', 'left');
+        $this->db->join('gambar', 'gambar.id_produk = produk.id_produk', 'left');
+        //END JOIN
+        $this->db->where('produk.status_produk', 'publish'); //Tampilkan hanya yang status produk nya "Publikasikan"
+        $this->db->where('produk.slug_produk', $slug_produk);
+        $this->db->group_by('produk.id_produk');
+        $this->db->order_by('id_produk', 'desc');
+
+        $query = $this->db->get();
+        return $query->row();
+    }
+
+    //Produk
+    public function produk($limit, $start)
+    {
+        $this->db->select(
+            'produk.*,
+        users.nama,
+        kategori.nama_kategori,
+        kategori.slug_kategori,
+        COUNT(gambar.id_gambar) AS total_gambar'
+
+        );
+        $this->db->from('produk');
+        //JOIN
+        $this->db->join('users', 'users.id_user = produk.id_user', 'left');
+        $this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori', 'left');
+        $this->db->join('gambar', 'gambar.id_produk = produk.id_produk', 'left');
+        //END JOIN
+        $this->db->where('produk.status_produk', 'publish'); //Tampilkan hanya yang status produk nya "Publikasikan"
+        $this->db->group_by('produk.id_produk');
+        $this->db->order_by('id_produk', 'desc');
+        $this->db->limit($limit, $start);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    //Total Produk
+    public function total_produk()
+    {
+        $this->db->select('COUNT(*) AS total');
+        $this->db->from('produk');
+        $this->db->where('status_produk', 'publish');
+        $query  = $this->db->get();
+        return $query->row();
+    }
+
+    //Ktegori Produk
+    public function kategori($id_kategori, $limit, $start)
+    {
+        $this->db->select(
+            'produk.*,
+        users.nama,
+        kategori.nama_kategori,
+        kategori.slug_kategori,
+        COUNT(gambar.id_gambar) AS total_gambar'
+
+        );
+        $this->db->from('produk');
+        //JOIN
+        $this->db->join('users', 'users.id_user = produk.id_user', 'left');
+        $this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori', 'left');
+        $this->db->join('gambar', 'gambar.id_produk = produk.id_produk', 'left');
+        //END JOIN
+        $this->db->where('produk.status_produk', 'publish'); //Tampilkan hanya yang status produk nya "Publikasikan"
+        $this->db->where('produk.id_kategori', $id_kategori);
+        $this->db->group_by('produk.id_produk');
+        $this->db->order_by('id_produk', 'desc');
+        $this->db->limit($limit, $start);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    //Total Kategori Produk
+    public function total_kategori($id_kategori)
+    {
+        $this->db->select('COUNT(*) AS total');
+        $this->db->from('produk');
+        $this->db->where('status_produk', 'publish');
+        $this->db->where('id_kategori', $id_kategori);
+        $query  = $this->db->get();
+        return $query->row();
+    }
+
+    //Listing kategori
+    public function listing_kategori()
+    {
+        $this->db->select(
+            'produk.*,
+        users.nama,
+        kategori.nama_kategori,
+        kategori.slug_kategori,
+        COUNT(gambar.id_gambar) AS total_gambar'
+
+        );
+        $this->db->from('produk');
+        //JOIN
+        $this->db->join('users', 'users.id_user = produk.id_user', 'left');
+        $this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori', 'left');
+        $this->db->join('gambar', 'gambar.id_produk = produk.id_produk', 'left');
+        //END JOIN
+        $this->db->group_by('produk.id_kategori');
+        $this->db->order_by('id_produk', 'desc');
         $query = $this->db->get();
         return $query->result();
     }

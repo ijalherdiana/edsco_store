@@ -41,7 +41,7 @@ class Produk extends CI_Controller
         );
 
         if ($valid->run()) {
-            $config['upload_path']    = './assets/upload/image/thumbs';
+            $config['upload_path']    = './assets/upload/image/thumbs/';
             $config['allowed_types']  = 'gif|jpg|jpeg|png';
             $config['max_size']       = '2400'; //Dalam KB
             $config['max_width']      = '2024';
@@ -162,7 +162,7 @@ class Produk extends CI_Controller
                 $config['image_library']  = 'gd2';
                 $config['source_image']   = './assets/upload/image/' . $upload_gambar['upload_data']['file_name'];
                 //lokasi folder thumbnail
-                $config['new_image']      = './assets/upload/image/thumbs/';
+                $config['new_image']      = './assets/upload/image/thumbs';
                 $config['create_thumb']   = TRUE;
                 $config['maintain_ratio'] = TRUE;
                 $config['width']          = 250; //pixel
@@ -238,7 +238,7 @@ class Produk extends CI_Controller
             // Checck jika gambar diganti
             if (!empty($_FILES['gambar']['name'])) {
 
-                $config['upload_path']    = './assets/upload/image/thumbs';
+                $config['upload_path']    = './assets/upload/image/';
                 $config['allowed_types']  = 'gif|jpg|jpeg|png';
                 $config['max_size']       = '2400'; //Dalam KB
                 $config['max_width']      = '2024';
