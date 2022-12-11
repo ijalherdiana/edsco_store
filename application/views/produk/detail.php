@@ -26,7 +26,7 @@
                     <div class="item-slick3"
                         data-thumb="<?= base_url('assets/upload/image/thumbs/' . $produk->gambar) ?>">
                         <div class="wrap-pic-w">
-                            <img src="<?= base_url('assets/upload/image/' . $produk->gambar) ?>"
+                            <img src="<?= base_url('assets/upload/image/thumbs/' . $produk->gambar) ?>"
                                 alt="<?= $produk->nama_produk ?>">
                         </div>
                     </div>
