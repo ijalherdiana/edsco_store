@@ -103,7 +103,8 @@ $nav_produk_mobile     = $this->konfigurasi_model->nav_produk();
                 </ul>
 
                 <div class="header-cart-total">
-                    Total: <?= $total_belanja ?>
+                    Total: <?= $total_belanja   = 'Rp. ' . number_format($this->cart->total(), '0', ',', '.');
+                            ?>
                 </div>
 
                 <div class="header-cart-buttons">
