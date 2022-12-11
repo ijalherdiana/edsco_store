@@ -46,6 +46,42 @@ class Belanja extends CI_Controller
         //redirect page
         redirect($redirect_page, 'refresh');
     }
+    // Update cart
+    public function update_cart($rowid)
+    {
+        //Jika ada data rowid
+        if ($rowid) {
+            $data = array(
+                'rowid' => $rowid,
+                'qty'   => $this->input->post('qty') //diambil dari inputan list
+
+            );
+            $this->cart->update($data);
+
+            $this->session->set_flashdata('sukses', 'Data Keranjang telah diupdate');
+
+            redirect(base_url('belanja'), 'refresh');
+        } else {
+            // Jika tidak ada rowid
+            redirect(base_url('belanja'), 'refresh');
+        }
+    }
+
+    // Hapus semua isi keranjang belanja
+    public function hapus($rowid = '')
+    {
+        if ($rowid) {
+            // Hapus per item Keranjang
+            $this->cart->remove($rowid);
+            $this->session->set_flashdata('sukses', 'Data Keranjang belanja telah dihapus');
+            redirect(base_url('belanja'), 'refresh');
+        } else {
+            //Hapus All
+            $this->cart->destroy();
+            $this->session->set_flashdata('sukses', 'Data Keranjang belanja telah dihapus');
+            redirect(base_url('belanja'), 'refresh');
+        }
+    }
 }
 
 /* End of file Belanja.php and path \application\controllers\admin\Belanja.php */
