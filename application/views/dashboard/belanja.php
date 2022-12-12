@@ -5,7 +5,7 @@
 <section class="bgwhite p-t-55 p-b-65">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+            <div class="col-sm-6 col-md-3 col-lg-3 p-b-50">
                 <div class="leftbar p-r-20 p-r-0-sm">
                     <?php include('menu.php') ?>
 
@@ -13,12 +13,12 @@
                 </div>
             </div>
 
-            <div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
+            <div class="col-sm-6 col-md-9 col-lg-9 p-b-50">
+                <!-- Product -->
+                <h2><?= $title ?></h2>
+                <hr>
+                <p> Berikut adalah riwayat belanja anda</p>
 
-                <div class="alert alert-success">
-                    <h1>Selamat Datang <i><strong><?= $this->session->userdata('nama_pelanggan'); ?></strong></i>
-                    </h1>
-                </div>
                 <?php
                 // Jika Ada transaksi Tampilkan tabelnya
                 if ($header_transaksi) { ?>

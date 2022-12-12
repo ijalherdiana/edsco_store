@@ -17,6 +17,31 @@ class Header_transaksi_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+    //listing all header_transaksi
+    public function pelanggan($id_pelanggan)
+    {
+        $this->db->select('header_transaksi.*,
+                            SUM(transaksi.jumlah) AS total_item');
+        $this->db->from('header_transaksi');
+        $this->db->where('header_transaksi.id_pelanggan', $id_pelanggan);
+        //Join
+        $this->db->join('transaksi', 'transaksi.kode_transaksi = header_transaksi.kode_transaksi', 'left');
+        //End Join
+        $this->db->group_by('header_transaksi.id_header_transaksi');
+        $this->db->order_by('id_header_transaksi', 'desc');
+        $query = $this->db->get();
+        return $query->result();
+    }
+    //Detail header_transaksi
+    public function kode_transaksi($kode_transaksi)
+    {
+        $this->db->select('*');
+        $this->db->from('header_transaksi');
+        $this->db->where('kode_transaksi', $kode_transaksi);
+        $this->db->order_by('id_header_transaksi', 'desc');
+        $query = $this->db->get();
+        return $query->row();
+    }
 
     //Detail header_transaksi
     public function detail($id_header_transaksi)
@@ -24,32 +49,6 @@ class Header_transaksi_model extends CI_Model
         $this->db->select('*');
         $this->db->from('header_transaksi');
         $this->db->where('id_header_transaksi', $id_header_transaksi);
-        $this->db->order_by('id_header_transaksi', 'desc');
-        $query = $this->db->get();
-        return $query->row();
-    }
-    // Header_transaksi sudah login
-    public function sudah_login($email, $nama_header_transaksi)
-    {
-        //copy dari function detail
-        $this->db->select('*');
-        $this->db->from('header_transaksi');
-        $this->db->where('email', $email);
-        $this->db->where('nama_header_transaksi', $nama_header_transaksi);
-        $this->db->order_by('id_header_transaksi', 'desc');
-        $query = $this->db->get();
-        return $query->row();
-    }
-
-    //Login header_transaksi
-    public function login($email, $password)
-    {
-        $this->db->select('*');
-        $this->db->from('header_transaksi');
-        $this->db->where(array(
-            'email'    => $email,
-            'password' => SHA1($password)
-        ));
         $this->db->order_by('id_header_transaksi', 'desc');
         $query = $this->db->get();
         return $query->row();
