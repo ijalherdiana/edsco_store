@@ -11,6 +11,11 @@ class Belanja extends CI_Controller
         $this->load->model('produk_model');
         $this->load->model('kategori_model');
         $this->load->model('konfigurasi_model');
+        $this->load->model('pelanggan_model');
+        $this->load->model('header_transaksi_model');
+        $this->load->model('transaksi_model');
+        //LOAD HELPER RANDOM STRING
+        $this->load->helper('string');
     }
     //Halaman belanja
     public function index()
@@ -25,6 +30,112 @@ class Belanja extends CI_Controller
         );
         $this->load->view('layout/wrapper', $data, FALSE);
     }
+
+    // Checkout
+    public function checkout()
+    {
+        // check pelanggan sudah login atau belum? jika belum maka nanti harus registrasi
+        // dan juga sekaligus login. Mengecek dengan session email.
+
+        // Kondisi sudah login
+        if ($this->session->userdata('email')) {
+            // Email dan nama pelanggan diambil dari session
+            $email           = $this->session->userdata('email');
+            $nama_pelanggan  = $this->session->userdata('nama_pelanggan');
+            $pelanggan       = $this->pelanggan_model->sudah_login($email, $nama_pelanggan);
+
+            $keranjang  = $this->cart->contents();
+
+            //validasi input
+            $valid = $this->form_validation;
+            $valid->set_rules(
+                'nama_pelanggan',
+                'Nama lengkap',
+                'required',
+                array('required' => '%s Harus diisi')
+            );
+            $valid->set_rules(
+                'telpon',
+                'Nomor telpon',
+                'required',
+                array('required' => '%s Harus diisi')
+            );
+            $valid->set_rules(
+                'alamat',
+                'Alamat',
+                'required',
+                array('required' => '%s Harus diisi')
+            );
+            $valid->set_rules(
+                'email',
+                'Email',
+                'required|valid_email',
+                array(
+                    'required'     => '%s Harus diisi',
+                    'valid_email' => '%s Tidak Valid'
+                )
+            );
+
+            if ($valid->run() === FALSE) {
+
+                //end validation
+
+                $data   = array(
+                    'title'      => 'Checkout',
+                    'keranjang'  => $keranjang,
+                    'pelanggan'  => $pelanggan,
+                    'isi'        => 'belanja/checkout'
+
+                );
+                $this->load->view('layout/wrapper', $data, FALSE);
+                // Masuk Database
+            } else {
+                $i = $this->input;
+                $data = array(
+                    'id_pelanggan'          => $pelanggan->id_pelanggan,
+                    'nama_pelanggan'        => $i->post('nama_pelanggan'),
+                    'email'                 => $i->post('email'),
+                    'telpon'                => $i->post('telpon'),
+                    'alamat'                => $i->post('alamat'),
+                    'kode_transaksi'        => $i->post('kode_transaksi'),
+                    'tanggal_transaksi'     => $i->post('tanggal_transaksi'),
+                    'jumlah_transaksi'      => $i->post('jumlah_transaksi'),
+                    'status_bayar'          => 'Belum',
+                    'tanggal_post'          => date('Y-m-d H:i:s')
+                );
+                // Proses masuk ke header Transaksi
+                $this->header_transaksi_model->tambah($data);
+                // Proses masuk ke tabel Transakai
+                foreach ($keranjang as $keranjang) {
+                    $sub_total  = $keranjang['price'] * $keranjang['qty'];
+                    $data = array(
+                        'id_pelanggan'      => $pelanggan->id_pelanggan,
+                        'kode_transaksi'    => $i->post('kode_transaksi'),
+                        'id_produk'         => $keranjang['id'],
+                        'harga'             => $keranjang['price'],
+                        'jumlah'            => $keranjang['qty'],
+                        'total_harga'       => $sub_total,
+                        'tanggal_transaksi' => $i->post('tanggal_transaksi')
+                    );
+                    $this->transaksi_model->tambah($data);
+                }
+                // End Proses masuk ke tabel Transaksi
+                // Setellah masuk ke tabel transaksi maka keranjang dikosongka lagi
+                $this->cart->destroy();
+                //End Pengosongan keranjang
+                $this->session->set_flashdata('sukses', 'Check out berhasil');
+                redirect(base_url('belanja/sukses'), 'refresh');
+            }
+            //End masuk database
+        } else {
+            // Kalau belum, maka harus registrasi
+            $this->session->set_flashdata('sukses', 'Silahkan login atau Registrasi terlebih dahulu');
+            redirect(base_url('registrasi'), 'refresh');
+        }
+    }
+
+
+
     // Tambahkan ke keranjang belanja
     public function add()
     {
