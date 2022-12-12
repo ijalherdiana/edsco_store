@@ -18,6 +18,20 @@ class Pelanggan_model extends CI_Model
         return $query->result();
     }
 
+    //Login pelanggan
+    public function login($email, $password)
+    {
+        $this->db->select('*');
+        $this->db->from('pelanggan');
+        $this->db->where(array(
+            'email'    => $email,
+            'password' => SHA1($password)
+        ));
+        $this->db->order_by('id_pelanggan', 'desc');
+        $query = $this->db->get();
+        return $query->row();
+    }
+
     //Detail pelanggan
     public function detail($id_pelanggan)
     {
@@ -36,20 +50,6 @@ class Pelanggan_model extends CI_Model
         $this->db->from('pelanggan');
         $this->db->where('email', $email);
         $this->db->where('nama_pelanggan', $nama_pelanggan);
-        $this->db->order_by('id_pelanggan', 'desc');
-        $query = $this->db->get();
-        return $query->row();
-    }
-
-    //Login pelanggan
-    public function login($email, $password)
-    {
-        $this->db->select('*');
-        $this->db->from('pelanggan');
-        $this->db->where(array(
-            'email'    => $email,
-            'password' => SHA1($password)
-        ));
         $this->db->order_by('id_pelanggan', 'desc');
         $query = $this->db->get();
         return $query->row();
