@@ -9,13 +9,18 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
 
+            <!-- Menu Dashboard -->
             <li><a href="<?= base_url('admin/dashboard') ?>"><i class="fa fa-dashboard text-aqua"></i>
-                    <span>Dashboard</span></a></li>
+                    <span>DASHBOARD</span></a></li>
+
+            <!-- Menu Transaksi -->
+            <li><a href="<?= base_url('admin/transaksi') ?>"><i class="fa fa-check text-aqua"></i>
+                    <span>TRANSAKSI</span></a></li>
 
             <!-- Menu Produk -->
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-sitemap"></i> <span>Produk</span>
+                    <i class="fa fa-sitemap"></i> <span>PRODUK</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -37,7 +42,7 @@
             <!-- Menu Pengguna -->
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-lock"></i> <span>Pengguna</span>
+                    <i class="fa fa-lock"></i> <span>PENGGUNA</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -53,7 +58,7 @@
             <!-- Menu konfigurasi -->
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-wrench"></i> <span>Konfigurasi</span>
+                    <i class="fa fa-wrench"></i> <span>KONFIGURASI</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
