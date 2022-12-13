@@ -50,6 +50,21 @@ class Transaksi extends CI_Controller
         );
         $this->load->view('admin/transaksi/cetak', $data, FALSE);
     }
+
+    // Unduh PDF
+    public function pdf($kode_transaksi)
+    {
+        $header_transaksi    = $this->header_transaksi_model->kode_transaksi($kode_transaksi);
+        $transaksi           = $this->transaksi_model->kode_transaksi($kode_transaksi);
+        $site                = $this->konfigurasi_model->listing();
+        $data = array(
+            'title'             => 'Riwayat Belanja',
+            'header_transaksi'  => $header_transaksi,
+            'transaksi'         => $transaksi,
+            'site'              => $site,
+        );
+        $this->load->view('admin/transaksi/cetak', $data, FALSE);
+    }
 }
 
 /* End of file Transaksi.php and path \application\controllers\admin\Transaksi.php */

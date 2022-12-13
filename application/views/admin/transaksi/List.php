@@ -10,7 +10,7 @@
             <th>JUMLAH TOTAL</th>
             <th>JUMLAH ITEM</th>
             <th>STATUS BAYAR</th>
-            <th>ACTION</th>
+            <th width="25%">ACTION</th>
         </tr>
     </thead>
     <tbody>
