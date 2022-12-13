@@ -30,6 +30,10 @@
                 </ul>
             </li>
 
+            <!-- Menu Rekening -->
+            <li><a href="<?= base_url('admin/rekening') ?>"><i class="fa fa-dollar text-aqua"></i>
+                    <span>DATA REKENING</span></a></li>
+
             <!-- Menu Pengguna -->
             <li class="treeview">
                 <a href="#">
