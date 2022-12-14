@@ -38,14 +38,12 @@ if ($this->session->flashdata('sukses')) {
             <td><?= number_format($produk->harga, '0', ',', '.') ?></td>
             <td><?= $produk->status_produk ?></td>
             <td>
-                <!-- <a <?= anchor('admin/produk/gambar/' . $produk->id_produk, '<div class="btn btn-success btn-sm"><i class="fa fa-image"></i> Gambar(<?= $produk->total_gambar?>)
-                    </div>') ?> </a> -->
                 <a href="<?= base_url('admin/produk/gambar/' . $produk->id_produk) ?>" class="btn btn-success btn-sm">
                     <i class="fa fa-image"></i>Gambar(<?= $produk->total_gambar ?>) </a>
-                <a <?= anchor('admin/produk/edit/' . $produk->id_produk, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> edit</div>') ?>
-                    </a>
+                <a href="<?= base_url('admin/produk/edit/' . $produk->id_produk) ?>" class="btn btn-info btn-sm"><i
+                        class="fa fa-edit"></i> Edit</a>
 
-                    <?php include('delete.php') ?>
+                <?php include('delete.php') ?>
 
             </td>
         </tr>

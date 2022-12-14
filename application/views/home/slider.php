@@ -1,68 +1,44 @@
+<?php
+// AMBIL DATA MENU DARI KONFIGURASI
+$hero = $this->hero_model->listing();
+$i = 1;
+?>
 <!-- Slide1 -->
-<section class="slide1">
+<section class="slide1 " style="background-image: url(assets/frontend/images/master-slide.png);">
     <div class="wrap-slick1">
-        <div class="slick1">
-            <div class="item-slick1 item1-slick1" style="background-image: url(images/master-slide-02.jpg);">
-                <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-                    <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15"
-                        data-appear="fadeInDown">
-                        Women Collection 2018
-                    </span>
+        <div class="slick1" style="background-image: url(assets/frontend/images/master-slide.png);">
+            <?php foreach ($hero as $hero) { ?>
+            <div class="item-slick1 item<?= $i++ ?>-slick1 ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8  wrap-content-slide1 sizefull flex-col-l-m p-l-15 p-r-15 p-t-100 p-b-170">
+                            <span class="caption1-slide1 xl-text3 animated visible-false " data-appear="fadeInDown">
+                                <?= $hero->judul ?>
+                            </span>
+                            <h2 class="caption2-slide1 m-text1 animated visible-false m-b-37" data-appear="fadeInUp">
+                                <?= $hero->deskripsi ?>
+                            </h2>
+                            <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
+                                <!-- Button -->
+                                <a href="<?= base_url('produk') ?>"
+                                    class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+                                    Shop Now
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 flex-col-r-m p-l-15 p-r-15 p-t-100 p-b-170">
+                            <div class=" hov-img-zoom ">
+                                <img src=" <?= base_url('assets/upload/image/thumbs/' . $hero->gambar) ?>"
+                                    data-appear="fadeInDown">
+                            </div>
+                        </div>
 
-                    <h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
-                        New arrivals
-                    </h2>
-
-                    <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
-                        <!-- Button -->
-                        <a href="product.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
-                            Shop Now
-                        </a>
                     </div>
+
                 </div>
             </div>
-
-            <div class="item-slick1 item2-slick1" style="background-image: url(images/master-slide-03.jpg);">
-                <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-                    <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="rollIn">
-                        Women Collection 2018
-                    </span>
-
-                    <h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37"
-                        data-appear="lightSpeedIn">
-                        New arrivals
-                    </h2>
-
-                    <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="slideInUp">
-                        <!-- Button -->
-                        <a href="product.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
-                            Shop Now
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="item-slick1 item3-slick1" style="background-image: url(images/master-slide-04.jpg);">
-                <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
-                    <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15"
-                        data-appear="rotateInDownLeft">
-                        Women Collection 2018
-                    </span>
-
-                    <h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37"
-                        data-appear="rotateInUpRight">
-                        New arrivals
-                    </h2>
-
-                    <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="rotateIn">
-                        <!-- Button -->
-                        <a href="product.html" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
-                            Shop Now
-                        </a>
-                    </div>
-                </div>
-            </div>
-
+            <?php } ?>
         </div>
+    </div>
     </div>
 </section>

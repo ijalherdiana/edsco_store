@@ -22,49 +22,53 @@
                 <?php
                 // Jika Ada transaksi Tampilkan tabelnya
                 if ($header_transaksi) { ?>
-                    <table class="table table-bordered " width="100%">
-                        <thead>
-                            <tr class="bg-success">
-                                <th>NO</th>
-                                <th>KODE</th>
-                                <th>TANGGAL</th>
-                                <th>JUMLAH TOTAL</th>
-                                <th>JUMLAH ITEM</th>
-                                <th>STATUS BAYAR</th>
-                                <th>ACTION</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $i = 1;
+                <table class="table table-bordered " width="100%" id="example1">
+                    <thead>
+                        <tr class="bg-success">
+                            <th>NO</th>
+                            <th>KODE</th>
+                            <th>TANGGAL</th>
+                            <th>JUMLAH TOTAL</th>
+                            <th>JUMLAH ITEM</th>
+                            <th>STATUS BAYAR</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $i = 1;
                             foreach ($header_transaksi as $header_transaksi) { ?>
-                                <tr>
-                                    <td><?= $i ?></td>
-                                    <td><?= $header_transaksi->kode_transaksi ?></td>
-                                    <td><?= date('d-m-Y', strtotime($header_transaksi->tanggal_transaksi)) ?></td>
-                                    <td><?= number_format($header_transaksi->jumlah_transaksi) ?></td>
-                                    <td><?= $header_transaksi->total_item ?></td>
-                                    <td><?= $header_transaksi->status_bayar ?></td>
-                                    <td>
-                                        <div class="btn-group">
-                                            <a href="<?= base_url('dashboard/detail/' . $header_transaksi->kode_transaksi) ?>" class="btn btn-success btn-sm"><i class="fa fa-eye"></i> Detail
-                                            </a>
-                                            <a href="<?= base_url('dashboard/konfirmasi/' . $header_transaksi->kode_transaksi) ?>" class="btn btn-info btn-sm"><i class="fa fa-upload"></i> Konfirmasi bayar
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            <?php $i++;
+                        <tr>
+                            <td><?= $i ?></td>
+                            <td><?= $header_transaksi->kode_transaksi ?></td>
+                            <td><?= date('d-m-Y', strtotime($header_transaksi->tanggal_transaksi)) ?></td>
+                            <td><?= number_format($header_transaksi->jumlah_transaksi) ?></td>
+                            <td><?= $header_transaksi->total_item ?></td>
+                            <td><?= $header_transaksi->status_bayar ?></td>
+                            <td>
+                                <div class="btn-group">
+                                    <a href="<?= base_url('dashboard/detail/' . $header_transaksi->kode_transaksi) ?>"
+                                        class="btn btn-success btn-sm"><i class="fa fa-eye"></i> Detail
+                                    </a>
+                                    <a href="<?= base_url('dashboard/konfirmasi/' . $header_transaksi->kode_transaksi) ?>"
+                                        class="btn btn-info btn-sm"><i class="fa fa-upload"></i> Konfirmasi bayar
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        <?php $i++;
                             } ?>
-                        </tbody>
-                    </table>
+                    </tbody>
+                </table>
+                <p><small>Catatan : Nomor resi Pengiriman akan dikirimkan melalui Telpon / WhatsApp <br>
+                        harap cantumkan nomor Telpon / WhatsApp di Profil anda. </small></p>
 
                 <?php
                     // Jika tidak ada Tampilkan notifikasi
                 } else { ?>
 
-                    <p class="alert alert-success">
-                        <i class="fa fa_warning"></i> Belum ada data transaksi
-                    </p>
+                <p class="alert alert-success">
+                    <i class="fa fa_warning"></i> Belum ada data transaksi
+                </p>
 
                 <?php } ?>
             </div>

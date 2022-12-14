@@ -162,7 +162,7 @@ class Produk extends CI_Controller
                 $config['image_library']  = 'gd2';
                 $config['source_image']   = './assets/upload/image/' . $upload_gambar['upload_data']['file_name'];
                 //lokasi folder thumbnail
-                $config['new_image']      = './assets/upload/image/thumbs';
+                $config['new_image']      = './assets/upload/image/thumbs/';
                 $config['create_thumb']   = TRUE;
                 $config['maintain_ratio'] = TRUE;
                 $config['width']          = 250; //pixel
@@ -192,7 +192,7 @@ class Produk extends CI_Controller
                     'berat'         => $i->post('berat'),
                     'ukuran'        => $i->post('ukuran'),
                     'status_produk' => $i->post('status_produk'),
-                    'tanggal_post'  => date('Y-m-d H:i:s'),
+                    'tanggal_post'  => date('Y-m-d H:i:s')
                 );
                 $this->produk_model->tambah($data);
                 $this->session->set_flashdata('sukses', 'Data berhasil ditambah');

@@ -124,7 +124,7 @@ class Belanja extends CI_Controller
                 $this->cart->destroy();
                 //End Pengosongan keranjang
                 $this->session->set_flashdata('sukses', 'Check out berhasil');
-                redirect(base_url('belanja/sukses'), 'refresh');
+                redirect(base_url('belanja/checkout'), 'refresh');
             }
             //End masuk database
         } else {

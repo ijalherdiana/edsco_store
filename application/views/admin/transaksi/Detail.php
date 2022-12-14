@@ -1,4 +1,3 @@
-<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <!-- COPAS DARI VIEW/DASHBOARD/DETAIL -->
 <p class="pull-right">
 <div class="btn-group pull-right">

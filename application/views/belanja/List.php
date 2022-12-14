@@ -14,7 +14,7 @@
             }
             ?>
             <div class="wrap-table-shopping-cart bgwhite">
-                <table class="table-shopping-cart">
+                <table class="table-shopping-cart" id="example1">
                     <tr class="table-head">
                         <th class="column-1">GAMBAR</th>
                         <th class="column-2">PRODUK</th>
@@ -36,43 +36,46 @@
                         echo form_open(base_url('belanja/update_cart/' . $keranjang['rowid']));
 
                     ?>
-                        <tr class="table-row">
-                            <td class="column-1">
-                                <div class="cart-img-product b-rad-4 o-f-hidden">
-                                    <img src="<?= base_url('assets/upload/image/thumbs/' . $produk->gambar) ?>" alt="<?= $keranjang['name'] ?>">
-                                </div>
-                            </td>
-                            <td class="column-2"><?= $keranjang['name'] ?></td>
-                            <td class="column-3">Rp.<?= number_format($keranjang['price'], '0', ',', '.') ?>
-                            </td>
-                            <td class="column-4">
-                                <div class="flex-w bo5 of-hidden w-size17">
-                                    <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
-                                        <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
-                                    </button>
+                    <tr class="table-row">
+                        <td class="column-1">
+                            <div class="cart-img-product b-rad-4 o-f-hidden">
+                                <img src="<?= base_url('assets/upload/image/thumbs/' . $produk->gambar) ?>"
+                                    alt="<?= $keranjang['name'] ?>">
+                            </div>
+                        </td>
+                        <td class="column-2"><?= $keranjang['name'] ?></td>
+                        <td class="column-3">Rp.<?= number_format($keranjang['price'], '0', ',', '.') ?>
+                        </td>
+                        <td class="column-4">
+                            <div class="flex-w bo5 of-hidden w-size17">
+                                <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
+                                    <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
+                                </button>
 
-                                    <input class="size8 m-text18 t-center num-product" type="number" name="qty" value="<?= $keranjang['qty'] ?>">
+                                <input class="size8 m-text18 t-center num-product" type="number" name="qty"
+                                    value="<?= $keranjang['qty'] ?>">
 
-                                    <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
-                                        <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                            </td>
-                            <td class="column-5"> Rp .<?php
+                                <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
+                                    <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </td>
+                        <td class="column-5"> Rp .<?php
                                                         $sub_total  = $keranjang['price'] * $keranjang['qty'];
                                                         echo number_format($sub_total, '0', ',', '.');
                                                         ?>
-                            </td>
+                        </td>
 
-                            <td>
-                                <button type="submit" name="update" class="btn btn-success btn-sm">
-                                    <i class="fa fa-edit"> Update</i>
-                                </button>
-                                <a href="<?= base_url('belanja/hapus/' . $keranjang['rowid']) ?>" class="btn btn-warning btn-sm">
-                                    <i class="fa fa-trash-o"> Hapus</i>
-                                </a>
-                            </td>
-                        </tr>
+                        <td>
+                            <button type="submit" name="update" class="btn btn-success btn-sm">
+                                <i class="fa fa-edit"> Update</i>
+                            </button>
+                            <a href="<?= base_url('belanja/hapus/' . $keranjang['rowid']) ?>"
+                                class="btn btn-warning btn-sm">
+                                <i class="fa fa-trash-o"> Hapus</i>
+                            </a>
+                        </td>
+                    </tr>
                     <?php
                         // From close
                         echo form_close();

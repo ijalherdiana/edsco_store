@@ -1,10 +1,9 @@
 <!-- Title Page -->
-<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m"
-    style="background-image: url(<?= base_url() ?>assets/frontend/images/heading-pages-02.jpg);">
-    <h2 class="l-text2 t-center">
+<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m">
+    <h2 class=" xl-text3 t-center">
         <?= $title ?>
     </h2>
-    <p class="m-text13 t-center">
+    <p class="m-text14 t-center ">
         <?= $site->namaweb ?> | <?= $site->tagline ?>
     </p>
 </section>

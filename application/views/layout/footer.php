@@ -194,6 +194,24 @@ $('.block2-btn-addwishlist').each(function() {
 
 <!--===============================================================================================-->
 <script src="<?= base_url() ?>assets/frontend/js/main.js"></script>
+<!-- DataTables -->
+<script src="<?= base_url() ?>assets/administrator/bower_components/datatables.net/js/jquery.dataTables.min.js">
+</script>
+<script src="<?= base_url() ?>assets/administrator/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js">
+</script>
+<script>
+$(function() {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+        'paging': true,
+        'lengthChange': false,
+        'searching': false,
+        'ordering': true,
+        'info': true,
+        'autoWidth': false
+    })
+})
+</script>
 
 </body>
 

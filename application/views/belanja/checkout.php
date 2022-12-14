@@ -87,7 +87,7 @@
                         <td colspan="2" class="column-5">Rp. <?= number_format($this->cart->total(), '0', ',', '.') ?>
                         </td>
                     </tr>
-                </table><br>
+                </table id="example1"><br>
                 <?php echo form_open(base_url('belanja/checkout'));
                 $kode_transaksi = date('dmY') . strtoupper(random_string('alnum', 8));
                 ?>

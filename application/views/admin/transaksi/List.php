@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <!-- COPAS DARI DASHBOARD/LIST -->
-<table class="table table-bordered " width="100%">
+<table class="table table-bordered " id="example1" width="100%">
     <thead>
         <tr class="bg-success">
             <th>NO</th>

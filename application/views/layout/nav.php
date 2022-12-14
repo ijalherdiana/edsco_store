@@ -31,9 +31,9 @@ $nav_produk_mobile     = $this->konfigurasi_model->nav_produk();
                         <?php endforeach ?>
                     </ul>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="<?= base_url('kontak') ?>">Contact</a>
-                </li>
+                </li> -->
             </ul>
         </nav>
     </div>
