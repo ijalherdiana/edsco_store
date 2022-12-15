@@ -20,6 +20,7 @@ echo validation_errors('<div class="alert alert-warning">', '</div>');
 
 //form open
 echo form_open_multipart(base_url('admin/konfigurasi/'), ' class="form-horizontal"'); ?>
+<?php if ($this->session->userdata('akses_level') != 'Manager') { ?>
 
 <div class="form-group form-group-lg">
     <label class="col-md-3 control-label">Nama Website</label>
@@ -139,5 +140,115 @@ echo form_open_multipart(base_url('admin/konfigurasi/'), ' class="form-horizonta
         <button class="btn btn-danger btn-lg" name="reset" type="reset"><i class="fa fa-times"></i>Reset</button>
     </div>
 
+    <?php } else { ?>
+    <div class="form-group form-group-lg">
+        <label class="col-md-3 control-label">Nama Website</label>
+
+        <div class="col-md-8">
+            <input type="text" name="namaweb" class="form-control" placeholder="Nama Website"
+                value="<?= $konfigurasi->namaweb ?>" readonly>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-3 control-label">Tagline / Moto </label>
+
+        <div class="col-md-8">
+            <input type="text" name="tagline" class="form-control" placeholder="Tagline / Moto"
+                value="<?= $konfigurasi->tagline ?>" readonly>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-3 control-label">Email </label>
+
+        <div class="col-md-8">
+            <input type="email" name="email" class="form-control" placeholder="Email" value="<?= $konfigurasi->email ?>"
+                readonly>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-3 control-label">Website</label>
+
+        <div class="col-md-8">
+            <input type="text" name="website" class="form-control" placeholder="Website"
+                value="<?= $konfigurasi->website ?>" readonly>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-3 control-label">Alamat Facebook</label>
+
+        <div class="col-md-8">
+            <input type="text" name="facebook" class="form-control" placeholder="facebook"
+                value="<?= $konfigurasi->facebook ?>" readonly>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-3 control-label">Alamat Instagram</label>
+
+        <div class="col-md-8">
+            <input type="text" name="instagram" class="form-control" placeholder="instagram"
+                value="<?= $konfigurasi->instagram ?>" readonly>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-3 control-label">Telepon / HP</label>
+
+        <div class="col-md-8">
+            <input type="text" name="telepon" class="form-control" placeholder="Telepon / HP"
+                value="<?= $konfigurasi->telepon ?>" readonly>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-3 control-label">Alamat Kantor</label>
+
+        <div class="col-md-9">
+            <textarea name="alamat" class="form-control" placeholder="Alamat Kantor)" readonly>
+            <?= $konfigurasi->alamat ?></textarea>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="col-md-3 control-label">Keyword (Untuk SEO Google)</label>
+
+        <div class="col-md-9">
+            <textarea name="keywords" class="form-control" placeholder="Keyword (Untuk SEO Google)" readonly>
+            <?= $konfigurasi->keywords ?></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-3 control-label">Metatext</label>
+
+        <div class="col-md-9">
+            <textarea name="metatext" class="form-control" placeholder="Metatext" readonly>
+            <?= $konfigurasi->metatext ?></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-3 control-label">Deskripsi</label>
+
+        <div class="col-md-9">
+            <textarea name="deskripsi" class="form-control" placeholder="Deskripsi" readonly>
+            <?= $konfigurasi->deskripsi ?></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-3 control-label">Rekening Pembayaran</label>
+
+        <div class="col-md-9">
+            <textarea name="rekening_pembayaran" class="form-control" placeholder="Rekening Pembayaran" readonly>
+            <?= $konfigurasi->rekening_pembayaran ?></textarea>
+        </div>
+    </div>
+    <?php } ?>
 
     <?= form_close(); ?>

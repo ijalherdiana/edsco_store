@@ -16,8 +16,8 @@ class Simple_login
         $check = $this->CI->user_model->login($username, $password);
         // Jika ada data user , maka create session login
         if ($check) {
-            $id_user = $check->id_user;
-            $nama = $check->nama;
+            $id_user     = $check->id_user;
+            $nama        = $check->nama;
             $akses_level = $check->akses_level;
             //create session
             $this->CI->session->set_userdata('id_user', $id_user);

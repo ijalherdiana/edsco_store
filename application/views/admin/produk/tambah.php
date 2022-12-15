@@ -114,11 +114,15 @@ echo form_open_multipart(base_url('admin/produk/tambah'), ' class="form-horizont
 
     <div class="col-md-10">
         <select name="status_produk" class="form-control">
-            <option value="Publish">Publikasikan</option>
             <option value="Draft">Simpan Sebagai Draft</option>
+            <?php if ($this->session->userdata('akses_level') != 'Staff') : ?>
+            <option value="Publish">Publikasikan</option>
+            <?php endif ?>
+
         </select>
     </div>
 </div>
+
 
 <div class="form-group">
     <label class="col-md-2 control-label"></label>

@@ -1,9 +1,11 @@
+<?php if ($this->session->userdata('akses_level') != 'Manager') : ?>
 <p>
     <a href="<?= base_url('admin/user/tambah') ?>" class="btn btn-success btn-lg"> <i class="fa fa-plus"></i>Tambah
         Data
 
     </a>
 </p>
+<?php endif; ?>
 <?php
 if ($this->session->flashdata('sukses')) {
     echo '<div class="alert alert-success">';
@@ -19,7 +21,10 @@ if ($this->session->flashdata('sukses')) {
             <th>EMAIL</th>
             <th>USERNAME</th>
             <th>LEVEL</th>
+            <?php if ($this->session->userdata('akses_level') != 'Manager') : ?>
             <th>ACTION</th>
+            <?php endif; ?>
+
         </tr>
     </thead>
     <tbody>
@@ -32,15 +37,19 @@ if ($this->session->flashdata('sukses')) {
             <td><?= $user->username ?></td>
             <td><?= $user->akses_level ?></td>
             <td>
-                <!-- <a href="<?= base_url('admin/user/edit' . $user->id_user) ?>" class="btn btn-primary btn-sm"> <i
-                        class="fa fa-edit"></i>Edit </a> -->
-                <a onclick="return confirm('Anda yakin ingin menghapus') "
+                <?php if ($this->session->userdata('akses_level') != 'Manager') : ?>
+                <!-- <a href=" <?= base_url('admin/user/edit' . $user->id_user) ?>" class="btn btn-primary btn-sm"> <i
+        class="fa fa-edit"></i>Edit </a> -->
+                <a href="<?= base_url('admin/user/edit/' . $user->id_user) ?>" class="btn btn-info btn-sm"><i
+                        class="fa fa-edit"></i> Edit</a>
+                <!-- <a onclick="return confirm('Anda yakin ingin menghapus') "
                     <?= anchor('admin/user/edit/' . $user->id_user, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> edit</div>') ?>
-                    </a>
+                    </a> -->
 
-                    <a onclick="return confirm('Anda yakin ingin menghapus') "
-                        <?= anchor('admin/user/delete/' . $user->id_user, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus</div>') ?>
-                        </a>
+                <a onclick="return confirm('Anda yakin ingin menghapus') "
+                    <?= anchor('admin/user/delete/' . $user->id_user, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus</div>') ?>
+                    </a>
+                    <?php endif; ?>
 
 
 

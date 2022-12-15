@@ -88,6 +88,7 @@ class Hero extends CI_Controller
                     'judul'        => $i->post('judul'),
                     'deskripsi'    => $i->post('deskripsi'),
                     'gambar'       => $upload_gambar['upload_data']['file_name'],
+                    'status_hero'  => $i->post('status_hero'),
                 );
                 $this->hero_model->tambah($data);
                 $this->session->set_flashdata('sukses', 'Data berhasil ditambah');
@@ -175,6 +176,7 @@ class Hero extends CI_Controller
                         'judul'        => $i->post('judul'),
                         'deskripsi'    => $i->post('deskripsi'),
                         'gambar'       => $upload_gambar['upload_data']['file_name'],
+                        'status_hero'  => $i->post('status_hero'),
                     );
                     $this->hero_model->edit($data);
                     $this->session->set_flashdata('sukses', 'Data berhasil diedit');
@@ -187,6 +189,7 @@ class Hero extends CI_Controller
                     'id_hero'      => $id_hero,
                     'judul'        => $i->post('judul'),
                     'deskripsi'    => $i->post('deskripsi'),
+                    'status_hero'  => $i->post('status_hero'),
                     // 'gambar'       => $upload_gambar['upload_data']['file_name'],
                 );
                 $this->hero_model->edit($data);

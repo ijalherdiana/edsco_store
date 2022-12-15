@@ -5,9 +5,9 @@ $nav_produk_footer   = $this->konfigurasi_model->nav_produk();
 ?>
 
 <!-- Footer -->
-<footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
+<footer class="bg62 p-t-45 p-b-43  ">
     <div class="flex-w p-b-90">
-        <div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
+        <div class="w-size8 p-t-30 p-l-30 p-r-15 respon3">
             <h4 class="s-text12 p-b-30">
                 KONTAK KAMI
             </h4>
@@ -26,7 +26,7 @@ $nav_produk_footer   = $this->konfigurasi_model->nav_produk();
             </div>
         </div>
 
-        <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+        <div class="w-size8 p-t-30  p-l-30 p-r-15 respon3">
             <h4 class="s-text12 p-b-30">
                 Kategori Produk
             </h4>
@@ -107,26 +107,16 @@ $nav_produk_footer   = $this->konfigurasi_model->nav_produk();
             </ul>
         </div>
 
-        <div class="w-size8 p-t-30 p-l-15 p-r-15 respon3">
-            <h4 class="s-text12 p-b-30">
-                Newsletter
-            </h4>
+        <div class="w-size7 p-t-30 p-l-15 p-r-15 respon3">
+            <a class="s-text12 p-b-30">
+                <img src="<?= base_url('assets/upload/image/' . $site->logo) ?> " width="200">
+            </a><br>
+            <a href="#" class="s-text7">
+                <?= $site->namaweb ?> | <?= $site->tagline ?>
+            </a>
 
-            <form>
-                <div class="effect1 w-size9">
-                    <input class="s-text7 bg6 w-full p-b-5" type="text" name="email" placeholder="email@example.com">
-                    <span class="effect1-line"></span>
-                </div>
-
-                <div class="w-size2 p-t-20">
-                    <!-- Button -->
-                    <button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
-                        Subscribe
-                    </button>
-                </div>
-
-            </form>
         </div>
+
     </div>
 
     <div class="t-center p-l-15 p-r-15">

@@ -242,6 +242,14 @@ class Produk_model extends CI_Model
         $this->db->where('id_gambar', $data['id_gambar']);
         $this->db->delete('gambar', $data);
     }
+    public function get_product_keyword($keyword)
+    {
+        $this->db->select('*');
+        $this->db->from('produk');
+        $this->db->like('nama_produk', $keyword);
+        $this->db->or_like('harga', $keyword);
+        return $this->db->get()->result();
+    }
 }
 
 

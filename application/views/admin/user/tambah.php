@@ -46,8 +46,8 @@ echo form_open(base_url('admin/user/tambah'), ' class="form-horizontal"'); ?>
 
     <div class="col-md-5">
         <select name="akses_level" class="form-control">
-            <option value="Admin">Admin</option>
-            <option value="User">User</option>
+            <option value="Staff">Staff</option>
+            <option value="Manager">Manager</option>
         </select>
     </div>
 </div>

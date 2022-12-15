@@ -40,8 +40,8 @@
                 <ul class="treeview-menu">
                     <li><a href="<?= base_url('admin/produk') ?>"><i class="fa fa-table"></i>
                             Data Produk</a></li>
-                    <li><a href="<?= base_url('admin/produk/tambah') ?>"><i class="fa fa-plus"></i>
-                            Tambah Data Produk</a></li>
+
+
                     <li><a href="<?= base_url('admin/kategori') ?>"><i class="fa fa-tags"></i>
                             Kategori Produk</a></li>
                 </ul>
@@ -52,20 +52,9 @@
                     <span>DATA REKENING</span></a></li>
 
             <!-- Menu Pengguna -->
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-lock"></i> <span>PENGGUNA</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="<?= base_url('admin/user') ?>"><i class="fa fa-table"></i>
-                            Data Pengguna</a></li>
-                    <li><a href="<?= base_url('admin/user/tambah') ?>"><i class="fa fa-plus"></i>
-                            Tambah Data Pengguna</a></li>
-                </ul>
-            </li>
+            <li><a href="<?= base_url('admin/user') ?>"><i class="fa fa-lock text-aqua"></i>
+                    <span>PENGGUNA</span></a></li>
+
 
             <!-- Menu konfigurasi -->
             <li class="treeview">

@@ -46,10 +46,10 @@ echo form_open(base_url('admin/user/edit/' . $user->id_user), ' class="form-hori
 
     <div class="col-md-5">
         <select name="akses_level" class="form-control">
-            <option value="Admin">Admin</option>
-            <option value="User" <?php if ($user->akses_level == "user") {
+            <option value="Manager">Manager</option>
+            <option value="Staff" <?php if ($user->akses_level == "Staff") {
                                         echo "selected";
-                                    } ?>>User</option>
+                                    } ?>>Staff</option>
         </select>
     </div>
 </div>

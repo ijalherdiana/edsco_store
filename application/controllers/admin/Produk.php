@@ -238,7 +238,7 @@ class Produk extends CI_Controller
             // Checck jika gambar diganti
             if (!empty($_FILES['gambar']['name'])) {
 
-                $config['upload_path']    = './assets/upload/image/';
+                $config['upload_path']    = './assets/upload/image/thumbs/';
                 $config['allowed_types']  = 'gif|jpg|jpeg|png';
                 $config['max_size']       = '2400'; //Dalam KB
                 $config['max_width']      = '2024';
@@ -349,7 +349,7 @@ class Produk extends CI_Controller
     {
         // Proses hapus gambar
         $produk = $this->produk_model->detail($id_produk);
-        unlink('./assets/upload/image/' . $produk->gambar);
+        // unlink('./assets/upload/image/' . $produk->gambar);
         unlink('./assets/upload/image/thumbs/' . $produk->gambar);
         $data = array('id_produk' => $id_produk);
         $this->produk_model->delete($data);
@@ -361,7 +361,7 @@ class Produk extends CI_Controller
     {
         // Proses hapus gambar
         $gambar = $this->produk_model->detail_gambar($id_gambar);
-        unlink('./assets/upload/image/' . $gambar->gambar);
+        // unlink('./assets/upload/image/' . $gambar->gambar);
         unlink('./assets/upload/image/thumbs/' . $gambar->gambar);
         $data = array('id_gambar' => $id_gambar);
         $this->produk_model->delete_gambar($data);

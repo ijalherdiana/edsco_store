@@ -38,6 +38,17 @@ echo form_open_multipart(base_url('admin/hero/tambah'), ' class="form-horizontal
     </div>
 </div>
 <div class="form-group">
+    <label class="col-md-2 control-label">Status Publikasi</label>
+
+    <div class="col-md-10">
+        <select name="status_hero" class="form-control">
+            <option value="Draft">Simpan Sebagai Draft</option>
+
+
+        </select>
+    </div>
+</div>
+<div class="form-group">
     <label class="col-md-2 control-label"></label>
 
     <div class="col-md-5">

@@ -17,6 +17,15 @@ class Hero_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+    public function home()
+    {
+        $this->db->select('*');
+        $this->db->from('hero');
+        $this->db->order_by('id_hero', 'desc');
+        $this->db->where('hero.status_hero', 'publish'); //Tampilkan hanya yang status hero nya "Publikasikan"
+        $query = $this->db->get();
+        return $query->result();
+    }
 
     //Detail hero
     public function detail($id_hero)

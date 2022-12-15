@@ -1,6 +1,6 @@
 <?php
 // AMBIL DATA MENU DARI KONFIGURASI
-$hero = $this->hero_model->listing();
+$hero = $this->hero_model->home();
 $i = 1;
 ?>
 <!-- Slide1 -->
@@ -18,10 +18,10 @@ $i = 1;
                             <h2 class="caption2-slide1 m-text1 animated visible-false m-b-37" data-appear="fadeInUp">
                                 <?= $hero->deskripsi ?>
                             </h2>
-                            <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
+                            <div class="wrap-btn-slide1  w-size1 animated visible-false" data-appear="zoomIn">
                                 <!-- Button -->
                                 <a href="<?= base_url('produk') ?>"
-                                    class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+                                    class="flex-c-m  size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
                                     Shop Now
                                 </a>
                             </div>
