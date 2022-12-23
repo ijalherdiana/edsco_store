@@ -19,6 +19,8 @@ $site   = $this->konfigurasi_model->listing();
     <meta name="description" content="<?= $title ?>,<?= $site->deskripsi ?>">
 
     <!--===============================================================================================-->
+    <link rel="stylesheet"
+        href="<?= base_url() ?>assets/administrator/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" type="text/css"
         href="<?= base_url() ?>assets/frontend/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->

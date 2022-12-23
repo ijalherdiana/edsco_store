@@ -191,6 +191,7 @@ class Produk extends CI_Controller
                     'gambar'        => $upload_gambar['upload_data']['file_name'],
                     'berat'         => $i->post('berat'),
                     'ukuran'        => $i->post('ukuran'),
+                    'rating'        => $i->post('rating'),
                     'status_produk' => $i->post('status_produk'),
                     'tanggal_post'  => date('Y-m-d H:i:s')
                 );
@@ -298,6 +299,7 @@ class Produk extends CI_Controller
                         'gambar'        => $upload_gambar['upload_data']['file_name'],
                         'berat'         => $i->post('berat'),
                         'ukuran'        => $i->post('ukuran'),
+                        'rating'        => $i->post('rating'),
                         'status_produk' => $i->post('status_produk'),
 
                     );
@@ -326,6 +328,7 @@ class Produk extends CI_Controller
                     // 'gambar'        => $upload_gambar['upload_data']['file_name'],
                     'berat'         => $i->post('berat'),
                     'ukuran'        => $i->post('ukuran'),
+                    'rating'        => $i->post('rating'),
                     'status_produk' => $i->post('status_produk'),
 
                 );

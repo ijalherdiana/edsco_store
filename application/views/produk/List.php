@@ -33,20 +33,18 @@
 
 
                 </div>
-                <h4 class="m-text14 p-b-32">
+                <!-- <h4 class="m-text14 p-b-32">
                     Search
                 </h4>
 
                 <div class="search-product pos-relative bo4 of-hidden" id="example1">
-                    <?= form_open('produk/search') ?>
                     <input class="s-text7 size6 p-l-23 p-r-50" type="text" name="keyword"
                         placeholder="               Search Products...">
 
                     <button type="submit" class="btn btn-warning flex-c-m size5 ab-l-m color2 color0-hov trans-0-4">
                         <i class="fs-12 fa fa-search" aria-hidden="true"></i>
                     </button>
-                    <?= form_close() ?>
-                </div>
+                </div> -->
 
             </div>
 

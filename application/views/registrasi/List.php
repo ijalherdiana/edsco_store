@@ -71,6 +71,27 @@
                         </tbody>
 
                     </table>
+                    <small>
+                        Note * <br>
+                        <span> Aplikasi ini dibuat untuk memenuhi Tugas Akhir SIB PT. ARKATAMA</span><br>
+                        <span> Untuk bisa melakukan checkuot maka silahkan Registrasi dan Logi terlebih
+                            dahulu.</span><br>
+                        <span> Untuk bisa mengakses halaman Manager/Staff kunjungi halaman berikut</span><br>
+                        <a href="http://rijalherd.contohdomain.com/login">
+                            http://rijalherd.contohdomain.com/login</a><br>
+
+                        <span>
+                            <strong>Manager :</strong> <br>
+                            Username : ijalher <br>
+                            Password : ijal1234
+                        </span> <br>
+                        <span>
+                            <strong>Staff :</strong> <br>
+                            Username : asepsaepul <br>
+                            Password : asep1234
+                        </span> <br>
+
+                    </small>
 
                     <?= form_close(); ?>
                 </div>

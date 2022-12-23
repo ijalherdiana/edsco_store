@@ -8,14 +8,6 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <!-- search form -->
         <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Search...">
-                <span class="input-group-btn">
-                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i
-                            class="fa fa-search"></i>
-                    </button>
-                </span>
-            </div>
         </form>
         <!-- /.search form -->
         <ul class="sidebar-menu" data-widget="tree">
@@ -32,10 +24,7 @@
             <!-- Menu Produk -->
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-sitemap"></i> <span>PRODUK</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
+                    <i class="fa fa-sitemap text-aqua"></i> <span>PRODUK</span>
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="<?= base_url('admin/produk') ?>"><i class="fa fa-table"></i>
@@ -59,10 +48,7 @@
             <!-- Menu konfigurasi -->
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-wrench"></i> <span>KONFIGURASI</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
+                    <i class="fa fa-wrench text-aqua"></i> <span>KONFIGURASI</span>
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="<?= base_url('admin/konfigurasi') ?>"><i class="fa fa-home"></i>
@@ -76,6 +62,9 @@
             <!-- Menu Hero -->
             <li><a href="<?= base_url('admin/hero') ?>"><i class="fa fa-image text-aqua"></i>
                     <span>HERO</span></a></li>
+            <!-- Menu Hero -->
+            <li><a href="<?= base_url('home') ?>" target="_blank"><i class="fa fa-shopping-cart text-aqua"></i>
+                    <span>KUNJUNGI TOKO</span></a></li>
 
 
         </ul>

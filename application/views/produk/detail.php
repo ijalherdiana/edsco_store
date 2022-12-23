@@ -64,9 +64,22 @@
             //Elemen redirect
             echo form_hidden('redirect_page', str_replace('index.php/', '', current_url()));
             ?>
+
+            <!-- Tampilkan Kategori -->
+            <span>
+                <?= $produk->nama_kategori ?>
+            </span> <br>
+            <!-- End Tampilkan Kategori -->
+            <!-- Tampilkan Kategori -->
+            <span>
+                Ratting Produk 1 - 10 : <span class="m-text14 p-t-10"><?= $produk->rating ?></span>
+            </span> <br>
+            <!-- End Tampilkan Kategori -->
+
             <span class="m-text14">
                 IDR <?= number_format($produk->harga, '0', ',', '.') ?>
-            </span>
+            </span> <br>
+
 
             <p class="s-text8 p-t-10">
                 <?= $produk->keterangan ?>

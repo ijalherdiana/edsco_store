@@ -111,6 +111,14 @@ echo form_open_multipart(base_url('admin/produk/edit/' . $produk->id_produk), ' 
     </div>
 </div>
 <div class="form-group">
+    <label class="col-md-2 control-label">Rating Produk </label>
+
+    <div class="col-md-5">
+        <input type="number" min="1" max="10" name="rating" class="form-control" placeholder="Rating Produk"
+            value="<?= $produk->rating ?>" required>
+    </div>
+</div>
+<div class="form-group">
     <label class="col-md-2 control-label">Status Produk</label>
 
     <div class="col-md-10">
@@ -221,6 +229,15 @@ echo form_open_multipart(base_url('admin/produk/edit/' . $produk->id_produk), ' 
         <input type="file" name="gambar" class="form-control" readonly>
     </div>
 </div> -->
+<div class="form-group">
+    <label class="col-md-2 control-label">Rating Produk </label>
+
+    <div class="col-md-5">
+        <input type="number" min="1" max="10" name="rating" class="form-control" placeholder="Rating Produk"
+            value="<?= $produk->rating ?>" readonly>
+    </div>
+</div>
+
 <div class="form-group">
     <label class="col-md-2 control-label">Status Produk</label>
 

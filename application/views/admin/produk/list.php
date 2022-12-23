@@ -24,6 +24,7 @@ if ($this->session->flashdata('sukses')) {
             <th>KATEGORI</th>
             <th>HARGA</th>
             <th>STATUS</th>
+            <th>RATING</th>
             <th>ACTION</th>
         </tr>
     </thead>
@@ -40,6 +41,7 @@ if ($this->session->flashdata('sukses')) {
             <td><?= $produk->nama_kategori ?></td>
             <td><?= number_format($produk->harga, '0', ',', '.') ?></td>
             <td><?= $produk->status_produk ?></td>
+            <td><?= $produk->rating ?></td>
 
             <?php if ($this->session->userdata('akses_level') != 'Staff') { ?>
             <td>

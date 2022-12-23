@@ -96,8 +96,8 @@ echo form_open_multipart(base_url('admin/produk/tambah'), ' class="form-horizont
     <label class="col-md-2 control-label">Keyword (Untuk SEO Google)</label>
 
     <div class="col-md-10">
-        <textarea name="keywords" class="form-control" placeholder="Keyword (Untuk SEO Google)">
-            <?= set_value('keywords') ?></textarea>
+        <input name="keywords" class="form-control" placeholder="Keyword (Untuk SEO Google)">
+        <?= set_value('keywords') ?></input>
     </div>
 </div>
 
@@ -106,6 +106,15 @@ echo form_open_multipart(base_url('admin/produk/tambah'), ' class="form-horizont
 
     <div class="col-md-10">
         <input type="file" name="gambar" class="form-control" required>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-md-2 control-label">Rating Produk </label>
+
+    <div class="col-md-10">
+        <input type="number" min="1" max="10" name="rating" class="form-control" placeholder="Rating Produk">
+        <?= set_value('rating') ?></input>
     </div>
 </div>
 
