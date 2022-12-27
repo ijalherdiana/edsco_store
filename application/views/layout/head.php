@@ -59,12 +59,12 @@ $site   = $this->konfigurasi_model->listing();
     <style type="text/css" media="screen">
     ul.pagination {
         padding: 0 10px;
-        background-color: goldenrod;
+        background-color: #212529;
         text-align: center !important;
     }
 
     footer {
-        background-color: #f7b05d;
+        background-color: #212529;
     }
 
     .pagination a,
@@ -76,7 +76,7 @@ $site   = $this->konfigurasi_model->listing();
     }
 
     .pagination a {
-        background-color: goldenrod;
+        background-color: #212529;
         color: white;
     }
 

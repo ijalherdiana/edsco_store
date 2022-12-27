@@ -625,8 +625,6 @@ iframe {
 
 /*[ Logo ]
 -----------------------------------------------------------*/
-
-
 .logo {
   display: block;
   position: absolute;
@@ -637,13 +635,10 @@ iframe {
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
-  
- 
 }
 
 .logo img {
-  max-height: 50px;
-  
+  max-height: 27px;
 }
 
 
@@ -1112,7 +1107,7 @@ li.sale-noti > a {
 
 .side-menu .sub-menu > li {
   padding-left: 12px;
-  padding-top: 0 ;
+ 
 }
 
 .side-menu .sub-menu a:hover {

@@ -5,10 +5,10 @@ $nav_produk_footer   = $this->konfigurasi_model->nav_produk();
 ?>
 
 <!-- Footer -->
-<footer class="bg62 p-t-45 p-b-43  ">
+<footer class=" p-t-45 p-b-43  ">
     <div class="flex-w p-b-90">
         <div class="w-size8 p-t-30 p-l-30 p-r-15 respon3">
-            <h4 class="s-text12 p-b-30">
+            <h4 class="s-text12 p-b-30 text-white">
                 KONTAK KAMI
             </h4>
 
@@ -27,7 +27,7 @@ $nav_produk_footer   = $this->konfigurasi_model->nav_produk();
         </div>
 
         <div class="w-size8 p-t-30  p-l-30 p-r-15 respon3">
-            <h4 class="s-text12 p-b-30">
+            <h4 class="s-text12 p-b-30 text-white">
                 Kategori Produk
             </h4>
 
@@ -43,14 +43,14 @@ $nav_produk_footer   = $this->konfigurasi_model->nav_produk();
             </ul>
         </div>
 
-        <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
-            <h4 class="s-text12 p-b-30">
+        <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4 ">
+            <h4 class="s-text12 p-b-30 text-white">
                 Links
             </h4>
 
             <ul>
                 <li class="p-b-9">
-                    <a href="#" class="s-text7">
+                    <a href="#" class="s-text7 ">
                         Search
                     </a>
                 </li>
@@ -76,7 +76,7 @@ $nav_produk_footer   = $this->konfigurasi_model->nav_produk();
         </div>
 
         <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
-            <h4 class="s-text12 p-b-30">
+            <h4 class="s-text12 p-b-30 text-white">
                 Help
             </h4>
 

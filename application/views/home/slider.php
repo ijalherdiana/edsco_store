@@ -4,7 +4,7 @@ $hero = $this->hero_model->home();
 $i = 1;
 ?>
 <!-- Slide1 -->
-<section class="slide1 " style="background-image: url(assets/frontend/images/master-slide.png);">
+<section class="slide1 " style="background-image: url(assets/frontend/images/back.png);">
     <div class="wrap-slick1">
         <div class="slick1" style="background-image: url(assets/frontend/images/master-slide.png);">
             <?php foreach ($hero as $hero) { ?>
@@ -12,7 +12,8 @@ $i = 1;
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8  wrap-content-slide1 sizefull flex-col-l-m p-l-15 p-r-15 p-t-100 p-b-170">
-                            <span class="caption1-slide1 xl-text3 animated visible-false " data-appear="fadeInDown">
+                            <span class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37"
+                                data-appear="fadeInUp">
                                 <?= $hero->judul ?>
                             </span>
                             <h2 class="caption2-slide1 m-text1 animated visible-false m-b-37" data-appear="fadeInUp">
